@@ -19,5 +19,9 @@ All mappings are stored in a local `links.json` file, and displayed on the homep
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/url-shortener-node.git
+git clone https://github.com/DeveloperZeeshu/URL-Shortener.git
 cd url-shortener-node
+```
+
+## 🙋‍♂️ Author
+Made with ❤️ by Jeesan Abbas
