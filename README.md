@@ -15,3 +15,9 @@ All mappings are stored in a local `links.json` file, and displayed on the homep
 - List of existing short links shown on the page
 - Redirects using custom short codes
 
+## ▶️ Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/your-username/url-shortener-node.git
+cd url-shortener-node
