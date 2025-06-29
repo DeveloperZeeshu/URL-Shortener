@@ -3,8 +3,8 @@
   "module": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch server.js",
-    "start": "node server.js"
+    "dev": "node --env-file=.env --watch server.js",
+    "start": "node --watch server.js"
   },
   "devDependencies": {
     "@types/bun": "latest"

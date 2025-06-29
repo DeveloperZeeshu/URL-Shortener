@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form id="shorten-form">
+    <form id="shorten-form" action="/" method="post">
         <div class="container">
             <h1>URL Shortener</h1>
             <div>
@@ -17,12 +17,13 @@
                 <input id="url" type="url" name="url" required />
             </div>
             <div>
-                <label for="customUrl">Custom Short URL (Optional)</label><br>
-                <input id="customUrl" type="text" name="customUrl" />
+                <label for="shortCode">Custom Short URL (Optional)</label><br>
+                <input id="shortCode" type="text" name="shortCode" />
             </div>
             <button type="submit">Shorten</button>
             <h2>Shortened URLs</h2>
-            <ul id="responseDiv">
+            <ul>
+                {{shortened_urls}}
             </ul>
         </div>
     </form>
