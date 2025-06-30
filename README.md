@@ -1,19 +1,26 @@
-# 🔗 URL Shortener – Node.js (with Custom Codes)
+# 🔗 Express URL Shortener with EJS, Routes & Controllers
 
-A minimal URL shortener built using plain **Node.js** (no frameworks).  
-Users can create short links by entering:
-- A **long URL**
-- A **custom short code**
+A modular and beginner-friendly **URL shortener** app built using **Node.js + Express**.  
+It uses the **MVC pattern** with:
+- EJS for templating
+- Routes and Controllers for logic separation
+- `links.json` for storing data
 
-All mappings are stored in a local `links.json` file, and displayed on the homepage.
+---
 
 ## 🚀 Features
-- No external frameworks (pure Node.js)
-- Users choose their own short code
-- Data saved in `links.json`
-- HTML form for adding URLs
-- List of existing short links shown on the page
-- Redirects using custom short codes
+
+- Built with **Express.js** using clean routes/controllers
+- View engine: **EJS**
+- Data stored in local `data/links.json` file
+- User inputs:
+  - Long URL
+  - Custom short code (e.g., `yt` → `https://youtube.com`)
+- Homepage shows all shortened links
+- Clicking a short link redirects to the original
+- Custom 404 page for invalid short codes
+
+---
 
 ## ▶️ Getting Started
 
