@@ -1,10 +1,8 @@
-# 🔗 Express URL Shortener with EJS, Routes & Controllers
+# 🔗 Express URL Shortener with EJS, Routes & Controllers, MongoDB
 
-A modular and beginner-friendly **URL shortener** app built using **Node.js + Express**.  
-It uses the **MVC pattern** with:
-- EJS for templating
-- Routes and Controllers for logic separation
-- `links.json` for storing data
+A full-stack URL shortener built with **Node.js**, **Express.js**, and **MongoDB**.
+
+Users can shorten long URLs by entering a custom or random short code. The shortened links are stored in a MongoDB collection and displayed on the home page using **EJS templates**.
 
 ---
 
@@ -12,7 +10,7 @@ It uses the **MVC pattern** with:
 
 - Built with **Express.js** using clean routes/controllers
 - View engine: **EJS**
-- Data stored in local `data/links.json` file
+- Stores links in **MongoDB**
 - User inputs:
   - Long URL
   - Custom short code (e.g., `yt` → `https://youtube.com`)
