@@ -1,25 +1,16 @@
-import { writeFile, readFile } from 'fs/promises'
-import path from 'path'
+import { urlSchema } from "../../config/db_client.js"
+import mongoose from "mongoose"
 
-const DATA_FILE = path.join('data', 'links.json')
+const shortenerCollection = mongoose.model('shortener', urlSchema)
 
 export const loadLinks = async () => {
-    try {
-        const data = await readFile(DATA_FILE, 'utf-8')
-        return JSON.parse(data)
-    } catch (err) {
-        if (err.code === 'ENOENT') {
-            await writeFile(DATA_FILE, JSON.stringify({}))
-            return {}
-        }
-        throw err
-    }
+    return shortenerCollection.find()
 }
 
 export const saveLinks = async (links) => {
-    try {
-        await writeFile(DATA_FILE, JSON.stringify(links))
-    } catch (err) {
-        console.log(err)
-    }
+    return shortenerCollection.insertOne(links)
+}
+
+export const getLinkByShortCode = async (shortCode) => {
+    return await shortenerCollection.findOne({ shortCode: shortCode })
 }

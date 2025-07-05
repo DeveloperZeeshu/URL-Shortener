@@ -23,14 +23,13 @@
             <button type="submit">Shorten</button>
             <h2>Shortened URLs</h2>
             <ul>
-                <% for(const [shortCode, url] of Object.entries(links)){%>
+                <% links.map(({shortCode, url})=> {%>
                     <li><a style='color: #168fbeff; font-weight: 500' href='/<%= shortCode%>' target="_blank">
                             <%= host%>/<%= shortCode %>
                         </a>
                         <%= url%>
                     </li>
-                    <%}%>
-
+                    <%})%>
             </ul>
         </div>
     </form>

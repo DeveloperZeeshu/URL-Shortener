@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 import path from 'path'
-import { loadLinks, saveLinks } from './models/shortener.model.js'
+import { getLinkByShortCode, loadLinks, saveLinks } from './models/shortener.model.js'
 
 const staticPath = path.join(import.meta.dirname)
 
@@ -26,8 +26,7 @@ export const postURLShortener = async (req, res) => {
             return res.status(409).send('ShortCode already exists. Please choose another.')
         }
 
-        links[finalShortCode] = url
-        await saveLinks(links)
+        await saveLinks({ url, shortCode })
 
         return res.redirect('/')
 
@@ -40,11 +39,12 @@ export const postURLShortener = async (req, res) => {
 export const redirectToShortLink = async (req, res) => {
     try {
         const { shortCode } = req.params
-        const links = await loadLinks()
 
-        if (!links[shortCode]) return res.status(404).sendFile(path.join(staticPath, '..', 'views', '404.html'))
+        const link = await getLinkByShortCode(shortCode)
 
-        return res.redirect(links[shortCode])
+        if (!link) return res.status(404).sendFile(path.join(staticPath, '..', 'views', '404.html'))
+
+        return res.redirect(link.url)
     } catch (err) {
         console.error(err)
         return res.status(500).send('Internal server error!')
